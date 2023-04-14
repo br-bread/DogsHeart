@@ -2,4 +2,45 @@
 {% load static %}
 {% block title %} Главная {% endblock %}
 {% block content %}
+
+
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+          <div class="container carousel-content">
+        <div class="row">
+          <div class="col-6">
+            <p class="text-center main-heading" style="font-size: 80px">
+              Dog's Heart
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <p class="text-center main-heading" style="font-size: 25px; font-style: italic">
+              Собачье сердце
+            </p>
+          </div>
+        </div>
+    </div>
+    <div class="carousel-item active" data-bs-interval="4000">
+      <img src="{% static 'img/carousel/first_slide.png' %}" class="d-block w-300" alt="Dogs">
+    </div>
+    <div class="carousel-item" data-bs-interval="4000">
+      <img src="{% static 'img/carousel/second_slide.png' %}" class="d-block w-300" alt="Dogs">
+    </div>
+    <div class="carousel-item" data-bs-interval="4000">
+      <img src="{% static 'img/carousel/third_slide.png' %}" class="d-block w-300" alt="Dogs">
+    </div>
+      <div class="carousel-item" data-bs-interval="4000">
+      <img src="{% static 'img/carousel/fourth_slide.png' %}" class="d-block w-300" alt="Dogs">
+    </div>
+    <div class="carousel-item" data-bs-interval="4000">
+      <img src="{% static 'img/carousel/fifth_slide.png' %}" class="d-block w-300" alt="Dogs">
+    </div>
+    <div class="carousel-item" data-bs-interval="4000">
+      <img src="{% static 'img/carousel/sixth_slide.png' %}" class="d-block w-300" alt="Dogs">
+    </div>
+  </div>
+</div>
+
 {% endblock %}
