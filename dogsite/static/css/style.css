@@ -3,6 +3,10 @@
     --main_color: #ff9a05;
 }
 
+.main-color{
+    color: var(--main_color);
+}
+
 
 header {
     background: var(--color_background);
@@ -18,7 +22,7 @@ footer {
 }
 
 section {
-    padding: 100px 0;
+    padding: 70px 0;
 }
 
 .menu a {
@@ -34,6 +38,7 @@ section {
 .main-heading {
     font-weight: bold;
     color: var(--main_color);
+    text-shadow: 0 1px 2px rgba(0,0,0,.6);
 }
 
 .carousel .carousel-item {
@@ -54,4 +59,21 @@ section {
   left: 5%;
   z-index: 20;
   text-shadow: 0 1px 2px rgba(0,0,0,.6);
+}
+
+.btn-primary {
+    --bs-btn-color: #fff8df;
+    --bs-btn-bg: #ff9a05;
+    --bs-btn-border-color: #df8600;
+    --bs-btn-hover-color: #fff8df;
+    --bs-btn-hover-bg: #d87300;
+    --bs-btn-hover-border-color: #df8600;
+    --bs-btn-focus-shadow-rgb: 49,132,253;
+    --bs-btn-active-color: #fff8df;
+    --bs-btn-active-bg: #df8600;
+    --bs-btn-active-border-color: #cc6d00;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff8df;
+    --bs-btn-disabled-bg: #df8600;
+    --bs-btn-disabled-border-color: #df8600;
 }
