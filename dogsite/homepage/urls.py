@@ -5,5 +5,4 @@ from . import views
 app_name = 'homepage'
 urlpatterns = [
     path('', views.home, name='home'),
-    path('recommendations/', views.recs, name='recs'),
 ]
