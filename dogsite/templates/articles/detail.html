@@ -3,7 +3,17 @@
 {% block title %} {{article.name}} {% endblock %}
 {% block content %} 
 
-<div class="container">
+<section class="align-items-center">
+  <div class="container align-items-center text-center">
+      {% if article.upload %}
+    {{article.image}}
+    {% endif %}
+  </div>
+
+</section>
+
+<section>
+  <div class="container">
   <div class="row align-items-center">
     <div class="col-12 main-color text-center">
       <h3>{{article.name}}</h3>
@@ -13,4 +23,6 @@
       </div>
   </div>
 </div>
+</section>
+
 {% endblock %}

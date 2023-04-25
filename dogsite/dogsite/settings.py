@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
+from django_cleanup.signals import cleanup_pre_delete
+from sorl.thumbnail import delete
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # close your eyes
@@ -33,6 +36,9 @@ INSTALLED_APPS = [
 
     'homepage.apps.HomepageConfig',
     'articles.apps.ArticlesConfig',
+
+    'sorl.thumbnail',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [
@@ -107,3 +113,13 @@ STATICFILES_DIRS = [
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
+
+
+def sorl_delete(**kwargs):
+    delete(kwargs['file'])
+
+
+cleanup_pre_delete.connect(sorl_delete)

@@ -1,11 +1,11 @@
 <div class="card" style="width: 18rem;">
     {% with request.resolver_match.view_name as view_name %}
-    {% if article.main_image %}
-    {{article.main_image.image_tmb}}
+    {% if article.upload %}
+    {{article.image_tmb}}
     {% else %}
     {% load static %}
-    <img src="{% static 'img/favicon/android-chrome-512x512.png' %}" alt="фото">
-    <h6 class="text-center colorText" style="font-style:italic">(Изображение отсутствует)</h6>
+    <img src="{% static 'img/favicon/android-chrome-512x512.png' %}" alt="обложка">
+    <h6 class="text-center main-color" style="font-style:italic">(Изображение отсутствует)</h6>
     {% endif %}
     <div class="card-body">
         <h4 class="card-title">{{article.name}}</h4>
