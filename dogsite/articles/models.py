@@ -55,7 +55,8 @@ class Article(models.Model):
     def image_tmb(self):
         if self.upload:
             return mark_safe(
-                f'<img src="{self.get_img_tmb.url}" class="rounded float-start">'
+                f'<img src="{self.get_img_tmb.url}" '
+                f'class="rounded float-start">'
             )
         return "Нет изображения"
 
@@ -68,4 +69,3 @@ class Article(models.Model):
 
     image_tmb.short_description = 'обложка'
     image_tmb.allow_tags = True
-
