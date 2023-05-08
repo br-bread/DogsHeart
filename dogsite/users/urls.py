@@ -3,13 +3,14 @@ from django.contrib.auth.views import (LoginView, LogoutView,
                                        PasswordChangeView,
                                        PasswordChangeDoneView)
 
-from . import views
+from . import views, forms
 
 app_name = 'users'
 urlpatterns = [
     path('signup/', views.sign_up, name='signup'),
     path('login/',
-         LoginView.as_view(template_name='users/log/login.html'),
+         LoginView.as_view(template_name='users/log/login.html',
+                           authentication_form=forms.UserLoginForm),
          name='login'),
     path('logout/',
          LogoutView.as_view(template_name='users/log/logout.html'),
