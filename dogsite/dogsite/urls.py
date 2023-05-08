@@ -7,6 +7,7 @@ from dogsite import settings
 urlpatterns = [
     path('', include('homepage.urls')),
     path('articles/', include('articles.urls')),
+    path('auth/', include('users.urls')),
     path('auth/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
 ]
