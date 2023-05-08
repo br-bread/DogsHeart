@@ -6,12 +6,14 @@ from users.models import User
 
 class UserAdmin(BaseUserAdmin):
     list_display = ('login', 'is_active',
-                    'is_superuser', 'is_staff', 'is_cynologist', 'city', 'last_login')
+                    'is_superuser', 'is_staff', 'is_cynologist',
+                    'city', 'last_login')
     list_display_links = ('login',)
     fieldsets = (
         (('Персональная информация'), {'fields': ('login', 'city')}),
         (('Статус'), {
-            'fields': ('is_staff', 'is_superuser', 'is_cynologist', 'is_active'),
+            'fields': ('is_staff', 'is_superuser',
+                       'is_cynologist', 'is_active'),
         }),
     )
 

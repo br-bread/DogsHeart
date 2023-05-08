@@ -25,4 +25,3 @@ class SignupForm(forms.ModelForm):
                 attrs={'class': 'form-control',
                        'required': True}),
         }
-
