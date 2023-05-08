@@ -16,7 +16,7 @@
           {{ field.errors }}
           <br>
           {% if field.help_text %}
-            <p class="help">{{field.help_text}}</p>
+        <p class="help"><i>{{field.help_text}}</i></p>
           {% endif%}
         {% endfor %}
         {% for error in form.non_field_errors %}
