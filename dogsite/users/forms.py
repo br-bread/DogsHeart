@@ -1,5 +1,6 @@
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import (AuthenticationForm,
+                                       PasswordChangeForm)
 from .models import User
 
 
@@ -29,5 +30,12 @@ class SignupForm(forms.ModelForm):
 class UserLoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super(UserLoginForm, self).__init__(*args, **kwargs)
+        for field in self.visible_fields():
+            field.field.widget.attrs['class'] = 'form-control'
+
+
+class UserPasswordChangeForm(PasswordChangeForm):
+    def __init__(self, *args, **kwargs):
+        super(PasswordChangeForm, self).__init__(*args, **kwargs)
         for field in self.visible_fields():
             field.field.widget.attrs['class'] = 'form-control'
