@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 from django.utils.safestring import mark_safe
 from sorl.thumbnail import get_thumbnail
@@ -69,3 +70,34 @@ class Article(models.Model):
 
     image_tmb.short_description = 'обложка'
     image_tmb.allow_tags = True
+
+
+class Breed(Article):
+    size = models.IntegerField('размер',
+                               help_text='1 - маленький, 3 - большой',
+                               validators=[MinValueValidator(1),
+                                           MaxValueValidator(3)])
+    activity = models.IntegerField('активность',
+                                   help_text='1 - низкая, 3 - высокая',
+                                   validators=[MinValueValidator(1),
+                                               MaxValueValidator(3)])
+
+    cost = models.IntegerField('стоимость содержания',
+                               help_text='1 - низкая, 3 - высокая',
+                               validators=[MinValueValidator(1),
+                                           MaxValueValidator(3)])
+
+    friendliness = models.IntegerField('дружелюбность',
+                                       help_text='1 - низкая, 3 - высокая',
+                                       validators=[MinValueValidator(1),
+                                                   MaxValueValidator(3)])
+
+    intellect = models.IntegerField('интеллект',
+                                    help_text='1 - низкий, 3 - высокий',
+                                    validators=[MinValueValidator(1),
+                                                MaxValueValidator(3)])
+
+    noise = models.IntegerField('шум',
+                                help_text='1 - низкий, 3 - высокий',
+                                validators=[MinValueValidator(1),
+                                            MaxValueValidator(3)])
