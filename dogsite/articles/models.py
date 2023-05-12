@@ -22,12 +22,11 @@ class ArticleManager(models.Manager):
         )
 
 
-class Article(models.Model):
+class AbstractArticle(models.Model):
     objects = ArticleManager()
     name = models.TextField('название',
-                            max_length=40,
-                            help_text='Максимальная длина 40 символов')
-    is_breed = models.BooleanField('статья о породе', default=False)
+                            max_length=80,
+                            help_text='Максимальная длина 80 символов')
     description = models.TextField('краткое описание',
                                    max_length=100,
                                    help_text='Максимальная длина 100 символов')
@@ -39,8 +38,7 @@ class Article(models.Model):
                                null=True)
 
     class Meta:
-        verbose_name = 'статья'
-        verbose_name_plural = 'статьи'
+        abstract = True
 
     def __str__(self):
         return self.name
@@ -72,7 +70,13 @@ class Article(models.Model):
     image_tmb.allow_tags = True
 
 
-class Breed(Article):
+class Article(AbstractArticle):
+    class Meta:
+        verbose_name = 'статья'
+        verbose_name_plural = 'статьи'
+
+
+class Breed(AbstractArticle):
     size = models.IntegerField('размер',
                                help_text='1 - маленький, 3 - большой',
                                validators=[MinValueValidator(1),
@@ -101,3 +105,7 @@ class Breed(Article):
                                 help_text='1 - низкий, 3 - высокий',
                                 validators=[MinValueValidator(1),
                                             MaxValueValidator(3)])
+
+    class Meta:
+        verbose_name = 'порода'
+        verbose_name_plural = 'породы'

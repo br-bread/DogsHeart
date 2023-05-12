@@ -1,21 +1,19 @@
 from django.shortcuts import get_object_or_404, render
+from re import compile
 
-from articles.models import Article
+from articles.models import Article, Breed
 
 
 def article_list(request):
     template_name = 'articles/index.html'
 
     if request.path == '/articles/':
-        is_breeds = False
-        articles = Article.objects.published().filter(is_breed=False)
+        articles = Article.objects.published()
     else:
-        is_breeds = True
-        articles = Article.objects.published().filter(is_breed=True)
+        articles = Breed.objects.published()
 
     context = {
         'articles': articles,
-        'is_breeds': is_breeds,
     }
     return render(request, template_name, context)
 
@@ -23,8 +21,13 @@ def article_list(request):
 def article(request, pk):
     template_name = 'articles/detail.html'
 
-    article = get_object_or_404(
-        Article.objects.published_one(pk))
+    if compile('/articles/(?P<pk>[1-9]\\d*)/$').match(request.path):
+        article = get_object_or_404(
+            Article.objects.published_one(pk))
+    else:
+        article = get_object_or_404(
+            Breed.objects.published_one(pk))
+
 
     context = {
         'article': article,

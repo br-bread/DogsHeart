@@ -12,7 +12,11 @@
         <p class="card-text">
             {{ article.description|safe }}
         </p>
+        {% if request.resolver_match.view_name == 'articles:article_list' %}
         <a href="{% url 'articles:article' pk=article.id %}" class="btn btn-primary">Читать</a>
+        {% else %}
+        <a href="{% url 'articles:breed' pk=article.id %}" class="btn btn-primary">Читать</a>
+        {% endif %}
     </div>
     {% endwith %}
 </div>
