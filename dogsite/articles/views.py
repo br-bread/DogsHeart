@@ -28,7 +28,6 @@ def article(request, pk):
         article = get_object_or_404(
             Breed.objects.published_one(pk))
 
-
     context = {
         'article': article,
     }
