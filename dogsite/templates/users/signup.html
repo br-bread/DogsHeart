@@ -11,9 +11,10 @@
         <form class="p-4 p-md-5 border rounded-3 bg-light">
           {% csrf_token %}
           {% for field in form %}
-            {{ field.errors }}
+          {{ field.errors }}
             {{ field.label_tag }}
             {{ field }}
+
             {% if field.help_text %}
           <p class="help"><i>{{field.help_text}}</i></p>
             {% endif%}
