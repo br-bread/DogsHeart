@@ -99,8 +99,8 @@ class Breed(AbstractArticle):
 
     noise = models.IntegerField('шум',
                                 choices=[(1, 'Низкий'),
-                                 (2, 'Средний'),
-                                 (3, 'Высокий')])
+                                         (2, 'Средний'),
+                                         (3, 'Высокий')])
 
     class Meta:
         verbose_name = 'порода'
