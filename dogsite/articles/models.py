@@ -77,34 +77,30 @@ class Article(AbstractArticle):
 
 
 class Breed(AbstractArticle):
+    choices = [(1, 'Низкая'), (2, 'Средняя'), (3, 'Высокая')]
+
     size = models.IntegerField('размер',
-                               help_text='1 - маленький, 3 - большой',
-                               validators=[MinValueValidator(1),
-                                           MaxValueValidator(3)])
+                               choices=[(1, 'Маленький'),
+                                        (2, 'Средний'),
+                                        (3, 'Большой')])
     activity = models.IntegerField('активность',
-                                   help_text='1 - низкая, 3 - высокая',
-                                   validators=[MinValueValidator(1),
-                                               MaxValueValidator(3)])
+                                   choices=choices)
 
     cost = models.IntegerField('стоимость содержания',
-                               help_text='1 - низкая, 3 - высокая',
-                               validators=[MinValueValidator(1),
-                                           MaxValueValidator(3)])
+                               choices=choices)
 
     friendliness = models.IntegerField('дружелюбность',
-                                       help_text='1 - низкая, 3 - высокая',
-                                       validators=[MinValueValidator(1),
-                                                   MaxValueValidator(3)])
+                                       choices=choices)
 
     intellect = models.IntegerField('интеллект',
-                                    help_text='1 - низкий, 3 - высокий',
-                                    validators=[MinValueValidator(1),
-                                                MaxValueValidator(3)])
+                                    choices=[(1, 'Низкий'),
+                                             (2, 'Средний'),
+                                             (3, 'Высокий')])
 
     noise = models.IntegerField('шум',
-                                help_text='1 - низкий, 3 - высокий',
-                                validators=[MinValueValidator(1),
-                                            MaxValueValidator(3)])
+                                choices=[(1, 'Низкий'),
+                                 (2, 'Средний'),
+                                 (3, 'Высокий')])
 
     class Meta:
         verbose_name = 'порода'
