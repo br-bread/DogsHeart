@@ -7,7 +7,8 @@ class BreedForm(forms.ModelForm):
     class Meta:
         model = Breed
 
-        fields = ('size', 'activity', 'cost', 'friendliness', 'intellect', 'noise',)
+        fields = ('size', 'activity', 'cost',
+                  'friendliness', 'intellect', 'noise',)
 
         labels = {
             'size': 'Размер',
