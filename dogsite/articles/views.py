@@ -1,7 +1,8 @@
 from django.shortcuts import get_object_or_404, render
 from re import compile
 
-from articles.models import Article, Breed
+from .models import Article, Breed
+from . import forms
 
 
 def article_list(request):
@@ -9,12 +10,19 @@ def article_list(request):
 
     if request.path == '/articles/':
         articles = Article.objects.published()
+        context = {
+            'articles': articles,
+        }
     else:
         articles = Breed.objects.published()
+        form = forms.BreedForm(request.POST or None)
+        context = {
+            'articles': articles,
+            'form': form,
+        }
+        if request.method == 'POST' and form.is_valid():
+            print('abob')
 
-    context = {
-        'articles': articles,
-    }
     return render(request, template_name, context)
 
 

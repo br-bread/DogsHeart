@@ -77,3 +77,7 @@ section {
     --bs-btn-disabled-bg: #df8600;
     --bs-btn-disabled-border-color: #df8600;
 }
+
+td {
+    padding: 0 10px;
+  }

@@ -11,20 +11,43 @@
     <h2 class="text-center main-color">Породы</h2>
     {% endif %}
   </div>
-  <div class="col-12">
-    <br>
-  </div>
+    <br><br><br><br>
 </div>
-</section>
-<section>
   <div class="container">
   <div class="row">
+      {% if request.path == '/articles/breeds/' %}
+    <div class="col-md-10 col-lg-8">
+        <form class="p-4 p-md-5 border rounded-3 bg-light">
+            <table style="width: 100%">
+            <tr class="{% cycle row1 row2 %}">
+            {% for field in form %}
+              <td style="width: 16%;">
+                {{ field.label_tag }}
+              </td>
+            {% endfor %}
+            </tr>
+            <tr class="{% cycle row1 row2 %}">
+              {% for field in form %}
+                <td>
+                  {{ field }}
+                </td>
+              {% endfor %}
+              </tr>
+          </table>
+            <br>
+            <input type="submit" value="Поиск" class = "btn btn-primary">
+        </form>
+      </div>
+      {% endif %}
+    </div>
+    <section></section>
+    <div class="row">
     {% for article in articles %}
         <div class="col-4 align-items-center">
           {% include "articles/includes/article.html" %}
         </div>
       {% empty %}
-      <div class="row align-items-center">
+      <div class="row text-center">
         <div class="col-12 mail-color">
           <h4>Статей нет</h4>
         </div>
