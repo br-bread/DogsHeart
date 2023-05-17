@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 from django_cleanup.signals import cleanup_pre_delete
@@ -17,12 +17,9 @@ from sorl.thumbnail import delete
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# close your eyes
-# don't look here
-SECRET_KEY = 'django-insecure-r9wfe4@i9vc#05#s!o0!' \
-             '(n827z-n==(#5zjqd8c!njx($w+)lw'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', default='django-insecure-r9wfe4@i9vc#05#s!o0!(n827z-n==(#5zjqd8c!njx($w+)lw')
 
-DEBUG = True
+DEBUG = bool(os.getenv('DEBUG', default=True))
 
 ALLOWED_HOSTS = ['*']
 
