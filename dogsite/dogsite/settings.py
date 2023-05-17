@@ -17,7 +17,8 @@ from sorl.thumbnail import delete
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', default='django-insecure-r9wfe4@i9vc#05#s!o0!(n827z-n==(#5zjqd8c!njx($w+)lw')
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY',
+                       default='django-insecure-r9wfe4@i9vc#05#s!o0!(n827z-n==(#5zjqd8c!njx($w+)lw')
 
 DEBUG = bool(os.getenv('DEBUG', default=True))
 
