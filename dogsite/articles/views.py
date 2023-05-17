@@ -14,14 +14,17 @@ def article_list(request):
             'articles': articles,
         }
     else:
+        form = forms.BreedForm(request.GET or None)
         articles = Breed.objects.published()
-        form = forms.BreedForm(request.POST or None)
+        if form.is_valid():
+
+            kwargs = {k: v for k, v in form.cleaned_data.items() if v}
+            articles = Breed.objects.published().filter(**kwargs)
+
         context = {
             'articles': articles,
             'form': form,
         }
-        if request.method == 'POST' and form.is_valid():
-            print('abob')
 
     return render(request, template_name, context)
 

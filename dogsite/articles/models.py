@@ -82,25 +82,42 @@ class Breed(AbstractArticle):
     size = models.IntegerField('размер',
                                choices=[(1, 'Маленький'),
                                         (2, 'Средний'),
-                                        (3, 'Большой')])
+                                        (3, 'Большой')],
+                               null=True,
+                               blank=True)
     activity = models.IntegerField('активность',
-                                   choices=choices)
+                                   choices=choices,
+                                   null=True,
+                                   blank=True
+                                   )
 
     cost = models.IntegerField('стоимость содержания',
-                               choices=choices)
+                               choices=choices,
+                               null=True,
+                               blank=True
+                               )
 
     friendliness = models.IntegerField('дружелюбность',
-                                       choices=choices)
+                                       choices=choices,
+                                       null=True,
+                                       blank=True
+                                       )
 
     intellect = models.IntegerField('интеллект',
                                     choices=[(1, 'Низкий'),
                                              (2, 'Средний'),
-                                             (3, 'Высокий')])
+                                             (3, 'Высокий')],
+                                    null=True,
+                                    blank=True
+                                    )
 
     noise = models.IntegerField('шум',
                                 choices=[(1, 'Низкий'),
                                          (2, 'Средний'),
-                                         (3, 'Высокий')])
+                                         (3, 'Высокий')],
+                                null=True,
+                                blank=True
+                                )
 
     class Meta:
         verbose_name = 'порода'

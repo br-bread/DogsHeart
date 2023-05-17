@@ -38,7 +38,7 @@ class User(AbstractBaseUser):
     city = models.CharField('город (для кинологов)',
                             max_length=100,
                             help_text='Максимальная длина 100 символов',
-                            blank=True)
+                            default='No city')
 
     is_staff = models.BooleanField('сотрудник', default=False)
     is_cynologist = models.BooleanField('кинолог', default=False)
