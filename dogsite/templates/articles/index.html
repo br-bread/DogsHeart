@@ -41,11 +41,15 @@
       {% endif %}
     </div>
     <section></section>
-    <div class="row">
+    <div class="row justify-content-center">
     {% for article in articles %}
         <div class="col-4 align-items-center">
           {% include "articles/includes/article.html" %}
         </div>
+        {% if forloop.counter == 3 or forloop.counter == 6 or forloop.counter == 9 or forloop.counter == 12 or forloop.counter == 15 or forloop.counter == 18 or forloop.counter == 21%}
+        <section></section>
+        {% else %}
+        {% endif %}
       {% empty %}
       <div class="row text-center">
         <div class="col-12 mail-color">
